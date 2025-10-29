@@ -9,6 +9,9 @@ import { LoggingInterceptor } from './interceptors/logging.interceptor';
 import { WhatsappModule } from './modules/whatsapp/whatsapp.module';
 import { AppointmentModule } from './modules/appointment/appointment.module';
 
+// Importamos el ReputationModule
+import { ReputationModule } from './modules/reputation/reputation.module';
+
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -17,7 +20,8 @@ import { AppointmentModule } from './modules/appointment/appointment.module';
     AuthModule,
     WhatsappModule,
     AppointmentModule,
-    
+    // Añadimos ReputationModule aquí
+    ReputationModule,  
   ],
   controllers: [],
   providers: [
