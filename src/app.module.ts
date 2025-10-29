@@ -8,6 +8,7 @@ import { APP_INTERCEPTOR } from '@nestjs/core';
 import { LoggingInterceptor } from './interceptors/logging.interceptor';
 import { WhatsappModule } from './modules/whatsapp/whatsapp.module';
 import { AppointmentModule } from './modules/appointment/appointment.module';
+import { BlockchainModule } from './modules/blockchain/blockchain.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { AppointmentModule } from './modules/appointment/appointment.module';
     AuthModule,
     WhatsappModule,
     AppointmentModule,
+    BlockchainModule,
     
   ],
   controllers: [],
