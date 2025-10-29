@@ -9,6 +9,10 @@ import { LoggingInterceptor } from './interceptors/logging.interceptor';
 import { WhatsappModule } from './modules/whatsapp/whatsapp.module';
 import { AppointmentModule } from './modules/appointment/appointment.module';
 
+// Importamos los módulos de Blockchain
+//import { ReputationModule } from './modules/reputation/reputation.module';
+//import { LoansModule } from './modules/loans/loans.module';  // Agregamos LoansModule
+
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -17,7 +21,9 @@ import { AppointmentModule } from './modules/appointment/appointment.module';
     AuthModule,
     WhatsappModule,
     AppointmentModule,
-    
+    // Nuevos módulos
+   // ReputationModule,  // Añadimos el módulo de reputación
+    //LoansModule,       // Añadimos el módulo de préstamos
   ],
   controllers: [],
   providers: [
