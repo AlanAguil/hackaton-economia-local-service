@@ -76,24 +76,26 @@ export class UserEntity extends Base {
     comment: "User role",
     enum: [
       stringConstants.ADMIN,
-      stringConstants.MANAGEMENT_STAFF,
-      stringConstants.MANAGEMENT,
-      stringConstants.MEDIC,
-      stringConstants.PATIENT
+      stringConstants.APPLICANT,
+      stringConstants.LENDER,
+      stringConstants.FACILITATOR,
+      stringConstants.REFEREE,
+      stringConstants.ORACLE
     ],
-    default: stringConstants.PATIENT
+    default: stringConstants.APPLICANT
   })
   @ApiProperty({
-    example: stringConstants.PATIENT,
+    example: stringConstants.APPLICANT,
     enum: [
       stringConstants.ADMIN,
-      stringConstants.MANAGEMENT_STAFF,
-      stringConstants.MANAGEMENT,
-      stringConstants.MEDIC,
-      stringConstants.PATIENT
+      stringConstants.APPLICANT,
+      stringConstants.LENDER,
+      stringConstants.FACILITATOR,
+      stringConstants.REFEREE,
+      stringConstants.ORACLE
     ],
   })
-  role: 'ADMIN' | 'MANAGEMENT_STAFF' | 'MANAGEMENT' | 'MEDIC' | 'PATIENT';
+  role: 'ADMIN' | 'APPLICANT' | 'LENDER' | 'FACILITATOR' | 'REFEREE' | 'ORACLE';
 
   @Column("enum", {
     name: "status",

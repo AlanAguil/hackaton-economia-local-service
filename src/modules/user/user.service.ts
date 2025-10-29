@@ -119,7 +119,7 @@ export class UserService {
       const user = this.userRepository.create({
         ...createUserDTO,
         password: hashedPassword,
-        role: 'PATIENT',
+        role: 'APPLICANT',
         status: 'ACTIVE',
       });
 

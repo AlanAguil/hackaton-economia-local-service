@@ -2,7 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsString, IsEnum, IsOptional, IsISO8601, IsEmail, IsPhoneNumber, IsNumber } from 'class-validator';
 import { stringConstants } from 'src/utils/string.constant';
 
-export class CreateUserDTO {
+export class  CreateUserDTO {
   @ApiProperty({ description: 'Full name of the user', example: 'Ximena Flores' })
   @IsString()
   name: string;
@@ -12,7 +12,7 @@ export class CreateUserDTO {
   email: string;
 
   @ApiProperty({ description: 'Unique phone number', example: '557771234567' })
-  @IsPhoneNumber()
+  //@IsPhoneNumber()
   phoneNumber: string;
 
   @ApiProperty({ description: 'Encrypted password', example: 'Password123' })

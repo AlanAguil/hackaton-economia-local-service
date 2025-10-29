@@ -20,7 +20,7 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get('/all')
-  @Roles(Role.ADMIN, Role.MANAGEMENT_STAFF)
+  @Roles(Role.ADMIN, Role.ORACLE)
   @ApiOperation({ summary: 'Get all users', description: 'Returns a list of all users registered in the system.' })
   @ApiResponse({ status: 200, description: 'List of users successfully retrieved', type: [CreateUserDTO] })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
@@ -31,7 +31,7 @@ export class UserController {
   }
 
   @Get('/:id')
-  @Roles(Role.ADMIN, Role.MANAGEMENT_STAFF)
+  @Roles(Role.ADMIN, Role.ORACLE)
   @ApiOperation({ summary: 'Get user by ID', description: 'Returns detailed information of a specific user based on its ID.' })
   @ApiParam({ name: 'id', type: 'number', description: 'User ID', example: 1, required: true })
   @ApiResponse({ status: 200, description: 'User successfully retrieved', type: CreateUserDTO })
@@ -44,7 +44,7 @@ export class UserController {
   }
 
   @Post('/create')
-  @Roles(Role.ADMIN, Role.MANAGEMENT_STAFF)
+  @Public()
   @ApiOperation({ summary: 'Create a new user', description: 'Creates a new user in the system with the provided information.' })
   @ApiBody({ type: CreateUserDTO, description: 'User data to create', required: true })
   @ApiResponse({ status: 201, description: 'User successfully created', type: CreateUserDTO })
@@ -57,7 +57,7 @@ export class UserController {
   }
 
   @Put('/update')
-  @Roles(Role.ADMIN, Role.MANAGEMENT_STAFF)
+  @Roles(Role.ADMIN, Role.ORACLE)
   @ApiOperation({ summary: 'Update a user', description: 'Updates the information of an existing user in the system.' })
   @ApiBody({ type: UpdateUserDTO, description: 'User data to update', required: true })
   @ApiResponse({ status: 200, description: 'User successfully updated', type: UpdateUserDTO })
