@@ -12,10 +12,12 @@ export const stringConstants = {
   },
 
   ADMIN: 'ADMIN',
-  MANAGEMENT_STAFF: 'MANAGEMENT_STAFF',
-  MANAGEMENT: 'MANAGEMENT',
-  MEDIC: 'MEDIC',
-  PATIENT: 'PATIENT',
+  APPLICANT: 'APPLICANT', // Solicitante
+  LENDER: 'LENDER', // Prestamista
+  FACILITATOR: 'FACILITATOR', // Facilitador
+  REFEREE: 'REFEREE', // Referenciador
+  ORACLE : 'ORACLE', // Oráculo
+
 
   tagVersion: '1.0.0',
 

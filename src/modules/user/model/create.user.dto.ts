@@ -26,23 +26,25 @@ export class CreateUserDTO {
 
   @ApiProperty({
     description: 'User role',
-    example: stringConstants.PATIENT,
+    example: stringConstants.APPLICANT,
     enum: [
       stringConstants.ADMIN,
-      stringConstants.MANAGEMENT_STAFF,
-      stringConstants.MANAGEMENT,
-      stringConstants.MEDIC,
-      stringConstants.PATIENT
+      stringConstants.APPLICANT,
+      stringConstants.LENDER,
+      stringConstants.FACILITATOR,
+      stringConstants.REFEREE,
+      stringConstants.ORACLE
     ],
   })
   @IsEnum([
     stringConstants.ADMIN,
-    stringConstants.MANAGEMENT_STAFF,
-    stringConstants.MANAGEMENT,
-    stringConstants.MEDIC,
-    stringConstants.PATIENT
+    stringConstants.APPLICANT,
+      stringConstants.LENDER,
+      stringConstants.FACILITATOR,
+      stringConstants.REFEREE,
+      stringConstants.ORACLE
   ])
-  role: 'ADMIN' | 'MANAGEMENT_STAFF' | 'MANAGEMENT' | 'MEDIC' | 'PATIENT';
+  role: 'ADMIN' | 'APPLICANT' | 'LENDER' | 'FACILITATOR' | 'REFEREE' | 'ORACLE';
 
   @ApiProperty({ description: 'User status', enum: ['ACTIVE', 'INACTIVE'], default: 'ACTIVE', example: 'ACTIVE' })
   @IsEnum(['ACTIVE', 'INACTIVE'])
