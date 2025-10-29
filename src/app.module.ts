@@ -12,6 +12,8 @@ import { AppointmentModule } from './modules/appointment/appointment.module';
 // Importamos los módulos de Blockchain
 //import { ReputationModule } from './modules/reputation/reputation.module';
 //import { LoansModule } from './modules/loans/loans.module';  // Agregamos LoansModule
+// Importamos el ReputationModule
+import { ReputationModule } from './modules/reputation/reputation.module';
 
 @Module({
   imports: [
@@ -24,6 +26,8 @@ import { AppointmentModule } from './modules/appointment/appointment.module';
     // Nuevos módulos
    // ReputationModule,  // Añadimos el módulo de reputación
     //LoansModule,       // Añadimos el módulo de préstamos
+    // Añadimos ReputationModule aquí
+    ReputationModule,  
   ],
   controllers: [],
   providers: [
