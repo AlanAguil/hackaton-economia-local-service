@@ -10,6 +10,12 @@ import { WhatsappModule } from './modules/whatsapp/whatsapp.module';
 import { AppointmentModule } from './modules/appointment/appointment.module';
 import { BlockchainModule } from './modules/blockchain/blockchain.module';
 
+// Importamos los módulos de Blockchain
+//import { ReputationModule } from './modules/reputation/reputation.module';
+//import { LoansModule } from './modules/loans/loans.module';  // Agregamos LoansModule
+// Importamos el ReputationModule
+import { ReputationModule } from './modules/reputation/reputation.module';
+
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -19,7 +25,7 @@ import { BlockchainModule } from './modules/blockchain/blockchain.module';
     WhatsappModule,
     AppointmentModule,
     BlockchainModule,
-    
+    ReputationModule,  
   ],
   controllers: [],
   providers: [

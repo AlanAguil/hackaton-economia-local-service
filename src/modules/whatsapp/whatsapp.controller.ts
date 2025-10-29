@@ -16,7 +16,7 @@ export class WhatsappController {
   constructor(private readonly whatsappService: WhatsappService) {}
 
   @Post('send-message')
-  @Roles(Role.ADMIN, Role.MANAGEMENT_STAFF)
+  @Roles(Role.ADMIN, Role.ORACLE)
   @ApiOperation({ summary: 'Enviar mensaje de WhatsApp' })
   @ApiResponse({ 
     status: 200, 
@@ -43,7 +43,7 @@ export class WhatsappController {
   }
 
   @Post('send-bulk-message')
-  @Roles(Role.ADMIN, Role.MANAGEMENT_STAFF)
+  @Roles(Role.ADMIN, Role.ORACLE)
   @ApiOperation({ summary: 'Enviar mensaje masivo de WhatsApp' })
   @ApiResponse({ 
     status: 200, 
@@ -77,7 +77,7 @@ export class WhatsappController {
   }
 
   @Get('qr')
-  @Roles(Role.ADMIN, Role.MANAGEMENT_STAFF)
+  @Roles(Role.ADMIN, Role.ORACLE)
   @ApiOperation({ summary: 'Obtener código QR para conectar WhatsApp' })
   @ApiResponse({ 
     status: 200, 
@@ -95,7 +95,7 @@ export class WhatsappController {
   }
 
   @Post('force-logout')
-  @Roles(Role.ADMIN, Role.MANAGEMENT_STAFF)
+  @Roles(Role.ADMIN, Role.ORACLE)
   @ApiOperation({ summary: 'Forzar cierre de sesión y borrar datos de autenticación' })
   @ApiResponse({ 
     status: 200, 

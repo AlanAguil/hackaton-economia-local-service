@@ -1,5 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString, IsEnum, IsOptional, IsISO8601, IsEmail, IsPhoneNumber, IsNumber } from 'class-validator';
+import {
+  IsString,
+  IsEnum,
+  IsOptional,
+  IsISO8601,
+  IsEmail,
+  IsPhoneNumber,
+  IsNumber,
+} from 'class-validator';
 import { stringConstants } from 'src/utils/string.constant';
 
 export class UpdateUserDTO {
@@ -7,12 +15,20 @@ export class UpdateUserDTO {
   @IsNumber()
   id: bigint;
 
-  @ApiProperty({ description: 'Full name of the user', required: false, example: 'Ximena Flores' })
+  @ApiProperty({
+    description: 'Full name of the user',
+    required: false,
+    example: 'Ximena Flores',
+  })
   @IsString()
   @IsOptional()
   name?: string;
 
-  @ApiProperty({ description: 'Unique email of the user', required: false, example: 'ximena@example.com' })
+  @ApiProperty({
+    description: 'Unique email of the user',
+    required: false,
+    example: 'ximena@example.com',
+  })
   @IsEmail()
   @IsOptional()
   email?: string;
@@ -21,39 +37,54 @@ export class UpdateUserDTO {
   @IsPhoneNumber()
   phoneNumber: string;
 
-  @ApiProperty({ description: 'Last session date in ISO format (YYYY-MM-DDTHH:mm:ss.sssZ)', required: false, example: '2025-04-30T00:00:00.000Z' })
+  @ApiProperty({
+    description: 'Last session date in ISO format (YYYY-MM-DDTHH:mm:ss.sssZ)',
+    required: false,
+    example: '2025-04-30T00:00:00.000Z',
+  })
   @IsISO8601()
   @IsOptional()
   lastSessionAt?: string;
 
   @ApiProperty({
     description: 'User role',
-    example: stringConstants.PATIENT,
+    example: stringConstants.APPLICANT,
     enum: [
       stringConstants.ADMIN,
-      stringConstants.MANAGEMENT_STAFF,
-      stringConstants.MANAGEMENT,
-      stringConstants.MEDIC,
-      stringConstants.PATIENT
+      stringConstants.APPLICANT,
+      stringConstants.LENDER,
+      stringConstants.FACILITATOR,
+      stringConstants.REFEREE,
+      stringConstants.ORACLE,
     ],
   })
   @IsEnum([
     stringConstants.ADMIN,
-    stringConstants.MANAGEMENT_STAFF,
-    stringConstants.MANAGEMENT,
-    stringConstants.MEDIC,
-    stringConstants.PATIENT
+    stringConstants.APPLICANT,
+    stringConstants.LENDER,
+    stringConstants.FACILITATOR,
+    stringConstants.REFEREE,
+    stringConstants.ORACLE,
   ])
   @IsOptional()
-  role: 'ADMIN' | 'MANAGEMENT_STAFF' | 'MANAGEMENT' | 'MEDIC' | 'PATIENT';
+  role: 'ADMIN' | 'APPLICANT' | 'LENDER' | 'FACILITATOR' | 'REFEREE' | 'ORACLE';
 
-  @ApiProperty({ description: 'User status', enum: ['ACTIVE', 'INACTIVE'], required: false, example: 'ACTIVE' })
+  @ApiProperty({
+    description: 'User status',
+    enum: ['ACTIVE', 'INACTIVE'],
+    required: false,
+    example: 'ACTIVE',
+  })
   @IsEnum(['ACTIVE', 'INACTIVE'])
   @IsOptional()
   status?: 'ACTIVE' | 'INACTIVE';
 
-  @ApiProperty({ description: 'Last update date in ISO format (YYYY-MM-DDTHH:mm:ss.sssZ)', required: true, example: '2025-04-30T00:00:00.000Z' })
+  @ApiProperty({
+    description: 'Last update date in ISO format (YYYY-MM-DDTHH:mm:ss.sssZ)',
+    required: true,
+    example: '2025-04-30T00:00:00.000Z',
+  })
   @IsISO8601()
   @IsOptional()
   updatedAt?: string;
-} 
+}

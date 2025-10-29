@@ -2,7 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsString, IsEnum, IsOptional, IsISO8601, IsEmail, IsPhoneNumber, IsNumber } from 'class-validator';
 import { stringConstants } from 'src/utils/string.constant';
 
-export class CreateUserDTO {
+export class  CreateUserDTO {
   @ApiProperty({ description: 'Full name of the user', example: 'Ximena Flores' })
   @IsString()
   name: string;
@@ -12,7 +12,7 @@ export class CreateUserDTO {
   email: string;
 
   @ApiProperty({ description: 'Unique phone number', example: '557771234567' })
-  @IsPhoneNumber()
+  //@IsPhoneNumber()
   phoneNumber: string;
 
   @ApiProperty({ description: 'Encrypted password', example: 'Password123' })
@@ -26,23 +26,25 @@ export class CreateUserDTO {
 
   @ApiProperty({
     description: 'User role',
-    example: stringConstants.PATIENT,
+    example: stringConstants.APPLICANT,
     enum: [
       stringConstants.ADMIN,
-      stringConstants.MANAGEMENT_STAFF,
-      stringConstants.MANAGEMENT,
-      stringConstants.MEDIC,
-      stringConstants.PATIENT
+      stringConstants.APPLICANT,
+      stringConstants.LENDER,
+      stringConstants.FACILITATOR,
+      stringConstants.REFEREE,
+      stringConstants.ORACLE
     ],
   })
   @IsEnum([
     stringConstants.ADMIN,
-    stringConstants.MANAGEMENT_STAFF,
-    stringConstants.MANAGEMENT,
-    stringConstants.MEDIC,
-    stringConstants.PATIENT
+    stringConstants.APPLICANT,
+      stringConstants.LENDER,
+      stringConstants.FACILITATOR,
+      stringConstants.REFEREE,
+      stringConstants.ORACLE
   ])
-  role: 'ADMIN' | 'MANAGEMENT_STAFF' | 'MANAGEMENT' | 'MEDIC' | 'PATIENT';
+  role: 'ADMIN' | 'APPLICANT' | 'LENDER' | 'FACILITATOR' | 'REFEREE' | 'ORACLE';
 
   @ApiProperty({ description: 'User status', enum: ['ACTIVE', 'INACTIVE'], default: 'ACTIVE', example: 'ACTIVE' })
   @IsEnum(['ACTIVE', 'INACTIVE'])
