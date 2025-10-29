@@ -9,6 +9,9 @@ import { LoggingInterceptor } from './interceptors/logging.interceptor';
 import { WhatsappModule } from './modules/whatsapp/whatsapp.module';
 import { AppointmentModule } from './modules/appointment/appointment.module';
 
+// Importamos los módulos de Blockchain
+//import { ReputationModule } from './modules/reputation/reputation.module';
+//import { LoansModule } from './modules/loans/loans.module';  // Agregamos LoansModule
 // Importamos el ReputationModule
 import { ReputationModule } from './modules/reputation/reputation.module';
 
@@ -20,6 +23,9 @@ import { ReputationModule } from './modules/reputation/reputation.module';
     AuthModule,
     WhatsappModule,
     AppointmentModule,
+    // Nuevos módulos
+   // ReputationModule,  // Añadimos el módulo de reputación
+    //LoansModule,       // Añadimos el módulo de préstamos
     // Añadimos ReputationModule aquí
     ReputationModule,  
   ],
